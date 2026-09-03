@@ -1,4 +1,4 @@
-package com.project.taskmanager.entities;
+package com.project.taskmanager.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -6,7 +6,7 @@ import jakarta.persistence.Column;;
 
 @Table(name = "USER_INFO")
 @Entity
-public class UserInfoEntity extends BaskEntity{
+public class UserInfoEntity extends BaseEntity{
     
     @Column(name = "password", nullable = false)
     private String password;

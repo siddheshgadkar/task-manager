@@ -9,8 +9,8 @@ public interface IUserInfoService {
 
     public UserInfoResponseDTO createUser(UserInfoDTO userInfoDTO);
     public UserInfoResponseDTO updateUser(UserInfoDTO userInfoDTO);
-    public int deleteUser(UserInfoDTO userInfoDTO);
+    public void deleteUser(UserInfoDTO userInfoDTO);
     public List<UserInfoResponseDTO> getUsers();
     public UserInfoResponseDTO getUser(String username, String email);
-    
+
 }

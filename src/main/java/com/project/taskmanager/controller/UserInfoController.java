@@ -42,7 +42,7 @@ public class UserInfoController {
 
     @DeleteMapping("/{userId}")
     public ResponseEntity<UserInfoResponseDTO> deleteUser(@PathVariable( name = "userId" ) String userId, @RequestBody UserInfoDTO userInfoDTO){
-        int count = userInfoService.deleteUser(userInfoDTO);
+        userInfoService.deleteUser(userInfoDTO);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

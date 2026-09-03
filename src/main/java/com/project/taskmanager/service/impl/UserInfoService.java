@@ -1,15 +1,24 @@
 package com.project.taskmanager.service.impl;
 
 import java.util.List;
+import java.util.UUID;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.taskmanager.dto.UserInfoDTO;
 import com.project.taskmanager.dto.UserInfoResponseDTO;
+import com.project.taskmanager.entity.UserInfoEntity;
+import com.project.taskmanager.repository.UserInfoRepository;
 import com.project.taskmanager.service.IUserInfoService;
 
 @Service
 public class UserInfoService implements IUserInfoService{
+
+    @Autowired
+    private UserInfoRepository userInfoRepository;
+
 
     @Override
     public UserInfoResponseDTO createUser(UserInfoDTO userInfoDTO) {
@@ -18,9 +27,16 @@ public class UserInfoService implements IUserInfoService{
     }
 
     @Override
-    public int deleteUser(UserInfoDTO userInfoDTO) {
+    public void deleteUser(UserInfoDTO userInfoDTO) {
         // TODO Auto-generated method stub
-        return 0;
+
+        Optional<UserInfoEntity> userInfoEntityOptional = userInfoRepository.findById(UUID.fromString(userInfoDTO.getId()));
+
+        if(userInfoEntityOptional.isEmpty()){
+          return;
+        }
+
+        userInfoRepository.delete(userInfoEntityOptional.get());
     }
 
     @Override

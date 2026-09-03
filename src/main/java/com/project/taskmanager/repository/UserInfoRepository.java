@@ -3,7 +3,7 @@ package com.project.taskmanager.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.project.taskmanager.entities.UserInfoEntity;
+import com.project.taskmanager.entity.UserInfoEntity;
 
 import java.util.*;
 

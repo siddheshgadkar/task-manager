@@ -1,4 +1,4 @@
-package com.project.taskmanager.entities;
+package com.project.taskmanager.entity;
 
 import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.Id;
@@ -15,7 +15,7 @@ import java.util.*;
 
 @Entity
 @Table(name = "TASK")
-public class TaskEntity extends BaskEntity {
+public class TaskEntity extends BaseEntity {
 
     @Column(name = "name", length = 512, nullable = false)
     private String name;
