@@ -7,9 +7,8 @@ import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 
-import org.springframework.data.annotation.Id;
-
-import lombok.Data;
+import jakarta.persistence.Id;
+import jakarta.persistence.Version;
 
 import java.time.Instant;
 import java.util.*;
@@ -21,6 +20,10 @@ public class BaseEntity {
     @Column(name = "guid")
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+
+    @Version
+    @Column(name = "version")
+    private Long version;
 
     @Column(name = "created_date")
     private Instant createdDate;
@@ -51,6 +54,14 @@ public class BaseEntity {
 
     public void setId(UUID id) {
         this.id = id;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     public Instant getCreatedDate() {

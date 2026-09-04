@@ -17,10 +17,10 @@ import java.util.*;
 @Table(name = "TASK")
 public class TaskEntity extends BaseEntity {
 
-    @Column(name = "name", length = 512, nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "description", length = 1024)
+    @Column(name = "description")
     private String description;
 
     @OneToMany( mappedBy = "parentTask", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -31,7 +31,7 @@ public class TaskEntity extends BaseEntity {
     private TaskEntity parentTask;
 
     @ManyToOne( fetch = FetchType.LAZY )
-    @JoinColumn( name = "guid" )
+    @JoinColumn( name = "assignee_id" )
     private UserInfoEntity assignee;
 
     public String getName() {
