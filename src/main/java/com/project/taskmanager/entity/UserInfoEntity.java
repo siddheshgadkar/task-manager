@@ -8,11 +8,22 @@ import jakarta.persistence.Column;;
 @Entity
 public class UserInfoEntity extends BaseEntity{
     
+    @Column(name = "name", nullable = false)
+    private String name;
+
     @Column(name = "password", nullable = false)
     private String password;
 
     @Column(name = "email", nullable = false)
     private String email;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getPassword() {
         return password;

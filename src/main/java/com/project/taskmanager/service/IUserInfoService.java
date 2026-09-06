@@ -1,5 +1,7 @@
 package com.project.taskmanager.service;
 
+import com.project.taskmanager.dto.LoginRequestDTO;
+import com.project.taskmanager.dto.LoginResponseDTO;
 import com.project.taskmanager.dto.UserInfoDTO;
 import com.project.taskmanager.dto.UserInfoResponseDTO;
 import java.util.*;
@@ -12,5 +14,6 @@ public interface IUserInfoService {
     public void deleteUser(UserInfoDTO userInfoDTO);
     public List<UserInfoResponseDTO> getUsers();
     public UserInfoResponseDTO getUser(String username, String email);
+    public LoginResponseDTO login(LoginRequestDTO loginRequestDTO);
 
 }

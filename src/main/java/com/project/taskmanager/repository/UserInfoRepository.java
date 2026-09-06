@@ -12,4 +12,6 @@ public interface UserInfoRepository extends CrudRepository<UserInfoEntity, UUID>
     
     UserInfoEntity findById(String id);
 
-} 
+    Optional<UserInfoEntity> findByEmail(String email);
+
+}
